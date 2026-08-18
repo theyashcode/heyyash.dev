@@ -469,3 +469,266 @@ img.img-fallback::before { content: ''; }
   .works-thumbs { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
+
+
+
+html.intro-active,
+body.intro-active {
+  overflow: hidden !important;
+  width: 100%;
+  height: 100%;
+}
+
+#intro-screen {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+
+  background: #000;
+
+  z-index: 999999;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+
+
+#intro-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  display: block;
+}
+
+#skip-intro {
+  position: absolute;
+  right: 60px;
+  bottom: 28px;
+
+  width: 125px;
+  height: 55px;
+
+  z-index: 1000000;
+
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+
+  color: #fff;
+  background: rgba(10,10,10,0.45);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.15),
+    0 8px 30px rgba(0,0,0,0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  font-family: Inter, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+}
+
+#skip-intro:hover {
+
+
+  background: rgba(20,20,20,0.65);
+}
+
+#skip-intro:active {
+  transform: scale(.96);
+}
+
+
+#intro-screen.hide-intro {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+
+@media (max-width: 600px) {
+
+  #intro-screen {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+
+    overflow: hidden;
+    background: #050505;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  #intro-screen .intro-video-bg {
+    position: absolute;
+    inset: -8%;
+
+    width: 116%;
+    height: 116%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: blur(28px);
+    transform: scale(1.12);
+
+    opacity: 0.65;
+
+    z-index: 0;
+
+    pointer-events: none;
+  }
+
+
+  /* Dark cinematic layer */
+  #intro-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+      radial-gradient(
+        circle at center,
+        rgba(0,0,0,0.02),
+        rgba(0,0,0,0.38)
+      );
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+
+  #intro-screen #intro-video {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 100dvh;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    z-index: 2;
+
+    /*
+      Slight cinematic shadow so
+      foreground video separates
+      from blurred background.
+    */
+    filter:
+      drop-shadow(0 0 35px rgba(0,0,0,0.45));
+  }
+
+
+  #skip-intro {
+    position: absolute;
+
+    right: 5px;
+    bottom: 355px;
+
+    width: 90px;
+    height: 30px;
+
+    z-index: 10;
+
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    background:
+      rgba(10,10,10,0.42);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    box-shadow:
+      inset 0 1px 1px rgba(255,255,255,0.16),
+      0 10px 30px rgba(0,0,0,0.35);
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+  }
+
+
+  html:has(body.intro-active),
+  body.intro-active {
+    overflow: hidden !important;
+    width: 100%;
+    height: 100dvh;
+  }
+}
+
+
+@media (min-width: 901px) and (max-width: 1600px) {
+
+  #skip-intro {
+    right: 60px;
+    bottom: 28px;
+
+    width: 125px;
+    height: 55px;
+  }
+
+}
+
+
+@media (min-width: 1601px) {
+
+  #skip-intro {
+    right: 70px;
+    bottom: 40px;
+
+    width: 145px;
+    height: 62px;
+
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+
+}

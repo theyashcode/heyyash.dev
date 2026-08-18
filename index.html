@@ -10,6 +10,40 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+
+<div id="intro-screen">
+  <video
+    class="intro-video-bg"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    aria-hidden="true"
+  >
+    <source src="video/main-intro-clip.mp4" type="video/mp4">
+  </video>
+
+
+  <video
+    id="intro-video"
+    autoplay
+    muted
+    playsinline
+    preload="metadata"
+    poster="images/yash-intro-poster.png"
+  >
+    <source src="video/main-intro-clip.mp4" type="video/mp4">
+  </video>
+
+  <button id="skip-intro" type="button" aria-label="Skip intro">
+    <span>SKIP</span>
+    <span>INTRO</span>
+  </button>
+
+</div>
+
   <header class="site-header">
     <div class="header-inner">
       <span class="brand">YASH CHAUDHARY</span>
