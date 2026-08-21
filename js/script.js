@@ -5,7 +5,9 @@ const introVideo = document.getElementById("intro-video");
 const skipIntro = document.getElementById("skip-intro");
 
 
-document.body.classList.add("intro-active");
+if (introScreen) {
+  document.body.classList.add("intro-active");
+}
 
 
 
